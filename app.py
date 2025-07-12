@@ -41,7 +41,6 @@ class ExpenseTracker(QMainWindow):
         
         self.head = QLabel("Expense Tracker")
         self.head.setObjectName("Heading")
-        self.text_input = QTextEdit()
         self.submit_btn = QPushButton(icon, 'Submit')
 
         #data_layout
@@ -79,7 +78,6 @@ class ExpenseTracker(QMainWindow):
         
         #Adding layout
         self.layout.addWidget(self.head)
-        self.layout.addWidget(self.text_input)
         self.layout.addWidget(data_widget) 
         self.layout.addWidget(self.submit_btn)
         self.layout.addWidget(self.table)
