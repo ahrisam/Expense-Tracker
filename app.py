@@ -50,8 +50,8 @@ class ExpenseTracker(QMainWindow):
         self.category.addItems([
             "Food",
             "Transport",
-            "Utilities"
-            "Entertainment"
+            "Utilities",
+            "Entertainment",
             "Health",
             "Other" 
         ])
