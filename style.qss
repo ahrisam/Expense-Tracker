@@ -1,0 +1,32 @@
+QMainWindow {
+    font-family: 'Segoe UI', sans-serif;
+    background-color:  #3f51b5;
+}
+QPushButton {
+    color: white;
+    background-color: #f18406ff;
+    border-radius: 8px;
+    font-size: 14px;
+}
+QPushButton:hover {
+    background-color: green;
+}
+QTextEdit {
+    border-radius: 4px;
+    background-color: red;
+    color: #333333;
+    font-size: 14px;
+    min-height: 50px;
+    max-height: 100px;
+}
+#Heading {
+    qproperty-alignment: 'AlignCenter';
+    font-size: 24px;
+    font-weight: bold
+}
+#data {
+    padding: 20px;
+    font-size: 10px;
+    background-color: green;
+    border-radius: 8px;
+}
