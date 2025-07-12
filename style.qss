@@ -1,35 +1,70 @@
-QMainWindow {
-    font-family: 'Segoe UI', sans-serif;
-    background-color:  #3f51b5;
-}
-QPushButton {
-    color: white;
-    background-color: #f18406ff;
-    border-radius: 8px;
+QWidget {
+    background: qlineargradient(
+        x1: 0, y1: 0,
+        x2: 1, y2: 1,
+        stop: 0 #6a00f4,      /* Violet */
+        stop: 1 #ffb894       /* Peach */
+    );
+    font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
     font-size: 14px;
+    color: #ffffff;
 }
-QPushButton:hover {
-    background-color: green;
-}
-QTextEdit {
-    border-radius: 4px;
-    background-color: red;
-    color: #333333;
-    font-size: 14px;
-    min-height: 50px;
-    max-height: 100px;
-}
-QLiineEdit {
-    border-radius: 30pxx;
-}
-#Heading {
-    qproperty-alignment: 'AlignCenter';
+
+QLabel#Heading {
     font-size: 24px;
-    font-weight: bold
+    font-weight: bold;
+    padding: 12px;
+    color: #ffffff;
+    background: transparent;
 }
-#data {
-    padding: 20px;
-    font-size: 30px;
-    background-color: green;
-    border-radius: 8px;
+
+QLineEdit, QDateEdit, QComboBox {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
+}
+
+QTextEdit {
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 6px;
+    font-size: 14px;
+    padding: 8px;
+}
+
+QPushButton {
+    background-color: #009688;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #00bfa5;
+}
+
+QTableWidget {
+    background-color: #ffffff;
+    font-size: 13px;
+    color: #2e2e2e;
+    gridline-color: #cccccc;
+    border-radius: 6px;
+}
+
+QTableWidget::item:selected {
+    background-color: #6a00f4;
+    color: #ffffff;
+}
+
+QHeaderView::section {
+    background-color: #6a00f4;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
 }

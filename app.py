@@ -47,10 +47,21 @@ class ExpenseTracker(QMainWindow):
         #data_layout
         data_layout = QFormLayout()
         self.amount_input = QLineEdit()
-        self.category = QLineEdit()
+        self.category = QComboBox()
+        self.category.addItems([
+            "Food",
+            "Transport",
+            "Utilities"
+            "Entertainment"
+            "Health",
+            "Other" 
+        ])
         self.description = QLineEdit()
         self.date =QDateEdit()
         self.date.setDate(QDate.currentDate())
+
+        self.submit_btn.clicked.connect(self.handle_submit)
+
 
         data_widget = QWidget()
         data_widget.setObjectName("data")
@@ -66,7 +77,6 @@ class ExpenseTracker(QMainWindow):
         self.table = QTableWidget()
         loading_csv_table(self.table, data_path)
         
-
         #Adding layout
         self.layout.addWidget(self.head)
         self.layout.addWidget(self.text_input)
@@ -77,6 +87,21 @@ class ExpenseTracker(QMainWindow):
         widget = QWidget()
         widget.setLayout(self.layout)
         self.setCentralWidget(widget)
+
+    def handle_submit(self):
+        amount = self.amount_input.text()
+        category = self.category.currentText()
+        description = self.description.text()
+        date = self.date.date().toString("yyyy-MM-dd")
+
+        if amount and category and description:
+            expense([date, amount, category, description])
+            loading_csv_table(self.table, data_path)  # refresh table
+            self.amount_input.clear()
+            self.category.clear()
+            self.description.clear()
+        else:
+            QMessageBox.warning(self, "Missing Info", "Please fill in all fields.")
 
 
 app = QApplication(sys.argv)
