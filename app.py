@@ -5,6 +5,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDate
 
 data_path = Path("data")/"expense.csv"
+income_path = Path("data") / "income.txt"
+
 #creating csv file and file directory for saving the data
 def expense(row):
     data_path.parent.mkdir(parents=True, exist_ok=True)
@@ -56,12 +58,8 @@ class ExpenseTracker(QMainWindow):
         self.amount_input = QLineEdit()
         self.category = QComboBox()
         self.category.addItems([
-            "Food",
-            "Transport",
-            "Utilities",
-            "Entertainment",
-            "Health",
-            "Other" 
+            "Food", "Transport","Utilities",
+            "Entertainment", "Health", "Other" 
         ])
         self.description = QLineEdit()
         self.date =QDateEdit()
@@ -117,16 +115,17 @@ class ExpenseTracker(QMainWindow):
 
     def load_income(self):
         try:
-            with open("income.txt", "r") as f:
+            with income_path.open("r") as f:
                 self.income_input.setText(f.read())
         except FileNotFoundError:
             self.income_input.setText("")
 
     def save_income(self):
-        income = self.income_input.text()
-        with open("income.txt", "w") as f:
-            f.write(income)
+        income_path.parent.mkdir(parents=True, exist_ok=True)
+        with income_path.open("w") as f:
+            f.write(self.income_input.text())
         self.update_summary_bar()
+
 
     def update_summary_bar(self):
         income = self.get_monthly_income()
@@ -147,7 +146,7 @@ class ExpenseTracker(QMainWindow):
                         continue
 
         balance = income - expenses
-        self.summary_bar.setText(f"💰 Income: GHS {income:.2f}  💸 Expenses: GHS {expenses:.2f}  🧮 Balance: GHS {balance:.2f}")
+        self.summary_bar.setText(f"💰 Income: GHS {income:.2f}💸 Expenses: GHS {expenses:.2f} 🧮 Balance: GHS {balance:.2f}")
     
     def get_monthly_income(self):
         try:
