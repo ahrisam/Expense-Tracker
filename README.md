@@ -1,6 +1,6 @@
 # 💸 Expense Tracker App
 
-A modern, visually appealing desktop application built with PyQt5 to help users log, view, and manage personal expenses. Featuring a smooth violet-to-peach gradient UI, CSV-backed data storage, and smart input options — this tracker blends design and functionality for stress-free budgeting.
+A modern, visually appealing desktop application built with PyQt5 to help users log, view, and manage personal expenses. Featuring a smooth violet-to-peach gradient UI, CSV-backed data storage — this tracker blends design and functionality for stress-free budgeting.
 
 ---
 
